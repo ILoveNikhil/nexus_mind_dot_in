@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nav with logo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+      body {
+        overflow-x: hidden;
+        font-family: "Poppins", sans-serif;
+        background: black;
+      }
+      header {
+        display: flex;
+        margin: 2rem;
+        padding: 1rem;
+        align-items: center;
+        justify-content: space-between;
+        border: 2px solid red;
+      }
+      header .logo {
+        width: 120px;
+        height: 55px;
+        /* border: 2px solid red; */
+      }
+      header .logo img {
+        width: 100%;
+      }
+      header nav ul {
+        display: flex;
+        list-style: none;
+      }
+      header nav ul li {
+        /* margin: 0.5rem; */
+        padding: 0.2rem;
+      }
+      header nav ul li a {
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 400;
+        color: white;
+        padding: 0.6rem 1.4rem;
+        border-radius: 25px;
+        letter-spacing: 1px;
+      }
+      header nav ul li a:hover {
+        background-color: rgb(3, 133, 66);
+      }
+      header nav ul li .active {
+        background-color: rgb(3, 133, 66);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- logo -->
+      <div class="logo">
+        <img src="./images/complete_logo.jpg" alt="logo" />
+      </div>
+      <!--       nav -->
+      <nav>
+        <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Courses</a></li>
+          <li><a href="#">Store</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <script>
+      // Get the list items and add click event listeners
+      const navList = document.getElementById("navList");
+      const navItems = navList.querySelectorAll("li");
+
+      navItems.forEach((item, index) => {
+        item.addEventListener("click", () => {
+          // Remove the "active" class from all items
+          navItems.forEach((item) => {
+            item.querySelector("a").classList.remove("active");
+          });
+
+          // Add the "active" class to the clicked item
+          item.querySelector("a").classList.add("active");
+        });
+      });
+
+      // Set "Home" as the default active item
+      navItems[0].querySelector("a").classList.add("active");
+    </script>
+  </body>
+</html>
